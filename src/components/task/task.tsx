@@ -18,6 +18,7 @@ export const Task: FC<ITask> = (props): ReactElement => {
     status = Status.completed,
     onStatusChange = (e) => console.log(e),
     onClick = (e) => console.log(e),
+    id,
   } = props;
 
   console.log(status);
@@ -40,7 +41,12 @@ export const Task: FC<ITask> = (props): ReactElement => {
     >
       <TaskHeader title={title} date={date} />
       <TaskDescription description={description} />
-      <TaskFooter onClick={onClick} onStatusChange={onStatusChange} />
+      <TaskFooter
+        onClick={onClick}
+        onStatusChange={onStatusChange}
+        id={id}
+        status={status}
+      />
     </Box>
   );
 };
@@ -52,5 +58,5 @@ Task.propTypes = {
   onStatusChange: PropTypes.func,
   onClick: PropTypes.func,
   priority: PropTypes.string,
-  status: PropTypes.string
-}
+  status: PropTypes.string,
+};
